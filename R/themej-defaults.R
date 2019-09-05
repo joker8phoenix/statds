@@ -1,7 +1,7 @@
 #'
 #' ggplot2 themes in statds
 #'
-mytheme_common_text <- function(base_size = 20,
+mytheme_common_text = function(base_size = 20,
                                 base_family = "",
                                 #"mono",#serif or sans
                                 number_family = "",
