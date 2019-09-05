@@ -178,7 +178,6 @@ mytheme_grey <- function (base_size = 20,
       strip.background = element_rect(fill = "grey85", colour = NA),
       strip.switch.pad.grid = unit(0.1, "cm"),
       strip.switch.pad.wrap = unit(0.1, "cm"),
-      #
       plot.background = element_rect(colour = "white"),
       complete = TRUE
     )
