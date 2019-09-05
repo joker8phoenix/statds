@@ -1,7 +1,7 @@
 #'
 #' ggplot2 themes in statds
 #'
-mytheme_common_text <- function(base_size = 20,
+mytheme_common_text = function(base_size = 20,
                                 base_family = "",
                                 #"mono",#serif or sans
                                 number_family = "",
@@ -178,9 +178,7 @@ mytheme_grey <- function (base_size = 20,
       strip.background = element_rect(fill = "grey85", colour = NA),
       strip.switch.pad.grid = unit(0.1, "cm"),
       strip.switch.pad.wrap = unit(0.1, "cm"),
-      #
       plot.background = element_rect(colour = "white"),
-      #
       complete = TRUE
     )
 }
@@ -202,11 +200,9 @@ mytheme_bw <- function (base_size = 20, ...)
       panel.border = element_rect(fill = NA, colour = "grey50"),
       panel.grid.major = element_line(colour = "grey90", size = 0.2),
       panel.grid.minor = element_line(colour = "grey98", size = 0.5),
-      strip.background = element_rect(
-        fill = "grey80",
-        colour = "grey50",
-        size = 0.2
-      )
+      strip.background = element_rect(fill = "grey85", colour = "grey20"),
+      legend.key = element_rect(fill = "white", colour = NA),
+      complete = TRUE
     )
 }
 
