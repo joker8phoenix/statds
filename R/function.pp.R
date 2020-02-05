@@ -11,7 +11,7 @@ alt.plot.failure.data = function(d, xlabel=quote(italic(t)), ylabel="Specimens")
 }
 plot.failure.data = alt.plot.failure.data
 
-alt.create.pp.data = function(d, empirical = 0){
+alt.create.pp.data = function(d, empirical = 0.5){
   t = d$t
   nj = rev(seq(nrow(d)))
   dj = d$cens
@@ -47,7 +47,7 @@ alt.create.pp.data = function(d, empirical = 0){
 }
 create.pp.data= alt.create.pp.data
 
-alt.plot.pp.data = function(d, empirical = 0, xlabel=""){
+alt.plot.pp.data = function(d, empirical = 0.5, xlabel=""){
   d = create.pp.data(d, empirical)
   p = d %>% ggplot(aes(t, f))+
     geom_point()+
@@ -62,7 +62,7 @@ alt.plot.pp.data = function(d, empirical = 0, xlabel=""){
 }
 plot.pp.data = alt.plot.pp.data
 
-alt.pp.comparison = function(df, empirical = 0){
+alt.pp.comparison = function(df, empirical = 0.5){
   d = create.pp.data(df, empirical)
   p = plot.pp.data(df, empirical)
   range.y = c(min(d$lower.f), max(d$upper.fend))
