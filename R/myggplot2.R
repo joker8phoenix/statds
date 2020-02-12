@@ -1,8 +1,9 @@
+
 #'
 #'
-ggsave.pdf.g <- 
-  function (filename, plot = last_plot(), device = NULL, path = NULL, 
-            scale = 1, units = c("in", "cm", "mm"), dpi = 300, limitsize = TRUE, ...) 
+ggsave.pdf.g <-
+  function (filename, plot = last_plot(), device = NULL, path = NULL,
+            scale = 1, units = c("in", "cm", "mm"), dpi = 300, limitsize = TRUE, ...)
   {
     height=sqrt((sqrt(10)-sqrt(2))/2)*4.5*1.5
     width=height*(1+sqrt(5))/2
@@ -12,9 +13,9 @@ ggsave.pdf.g <-
 
 #'
 #'
-ggsave.pdf.s <- 
-  function (filename, plot = last_plot(), device = NULL, path = NULL, 
-            scale = 1, units = c("in", "cm", "mm"), dpi = 300, limitsize = TRUE, ...) 
+ggsave.pdf.s <-
+  function (filename, plot = last_plot(), device = NULL, path = NULL,
+            scale = 1, units = c("in", "cm", "mm"), dpi = 300, limitsize = TRUE, ...)
   {
     height = 4.5*1.5
     width = height*sqrt(2)
@@ -37,10 +38,10 @@ getLevel <- function(x,y,prob=0.95) {
 
 #' fonts
 #'
-#serif, sans, mono, AvantGarde, Bookman, Courier, Helvetica, Helvetica-Narrow, 
-#NewCentrySchoolbook, Palatino, Times, URWGothic, URWBookman, NimbusMon, NimbusSan, 
-#URWHelvetica, NimbusSanCond, CenturySch, URWPalladio, NimbusRom, URWTimes, 
-#Japan1, Japan1HeiMin, Japan1GothicBBB, Japan1Ryumin, 
+#serif, sans, mono, AvantGarde, Bookman, Courier, Helvetica, Helvetica-Narrow,
+#NewCentrySchoolbook, Palatino, Times, URWGothic, URWBookman, NimbusMon, NimbusSan,
+#URWHelvetica, NimbusSanCond, CenturySch, URWPalladio, NimbusRom, URWTimes,
+#Japan1, Japan1HeiMin, Japan1GothicBBB, Japan1Ryumin,
 #CNS1, GB1
 # quartzFonts(HiraMaru=quartzFont(rep(c("HiraMaruProN-W4","HiraMaruProN-W8"), 2)))
 # quartzFonts(HiraKaku=quartzFont(rep(c("HiraKakuProN-W3","HiraKakuProN-W6"), 2)))
@@ -54,15 +55,15 @@ angled.boxes <-
 ##############
 ### ggsave ###
 ##############
-`gggsave` <- function (filename = default_name(plot), plot = last_plot(), 
-                       device = default_device(filename), path = NULL, scale = 1, 
-                       width = par("din")[1], height = par("din")[2], dpi = 300, 
-                       keep = plot$options$keep, drop = plot$options$drop, ...) 
+`gggsave` <- function (filename = default_name(plot), plot = last_plot(),
+                       device = default_device(filename), path = NULL, scale = 1,
+                       width = par("din")[1], height = par("din")[2], dpi = 300,
+                       keep = plot$options$keep, drop = plot$options$drop, ...)
 {
   # original
   # if (!inherits(plot, "ggplot"))
   #     stop("plot should be a ggplot2 plot")
-  if (!inherits(plot, "recordedplot")) 
+  if (!inherits(plot, "recordedplot"))
     stop("plot should be a recordedplot")
   eps <- ps <- function(..., width, height) grDevices::postscript(..., width = width, height = height, onefile = FALSE, horizontal = FALSE, paper = "special")
   tex <- function(..., width, height) grDevices::pictex(..., width = width, height = height)

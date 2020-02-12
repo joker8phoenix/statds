@@ -2,7 +2,7 @@
 mysave <- function(filename,w=pdf.sw,h=pdf.sh){
   p<-recordPlot();
   if (regexpr('\\.pdf$', filename)  > 0) { # ファイル名の最後が '.pdf'か？
-    pdf(filename,width=w,height=h); 
+    pdf(filename,width=w,height=h);
   } else if (regexpr('\\.png$', filename)  > 0) { # ファイル名の最後が '.png'か？
     if(w==pdf.sw){
       w<-png.sw
@@ -10,18 +10,18 @@ mysave <- function(filename,w=pdf.sw,h=pdf.sh){
     if(h==pdf.sh){
       h<-png.sh
     }
-    png(filename,width=w,height=h); 
+    png(filename,width=w,height=h);
   }else{
     next
   }
-  replayPlot(p); 
+  replayPlot(p);
   dev.off()
 }
 
 ############
 ### size ###
 ############
-sh <- 8.27
+sh <- 8.27*0.8
 sw <- sh*sqrt(2)
 gh <- sqrt((sqrt(10)-sqrt(2))/2)*sh
 gw <- gh*(1+sqrt(5))/2
