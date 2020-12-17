@@ -1,11 +1,12 @@
 geom_histogramh <- function(
   mapping = NULL, data = NULL,
-  stat = "binH", position = "stack",
+  stat = "binh", position = "stack",
   ...,
   hatch = NULL,
   binwidth = NULL,
   bins = NULL,
   na.rm = FALSE,
+  orientation = NA,
   show.legend = NA,
   inherit.aes = TRUE){
   ggplot2::layer(
@@ -21,6 +22,7 @@ geom_histogramh <- function(
       binwidth = binwidth,
       bins = bins,
       na.rm = na.rm,
+      orientation = orientation,
       pad = FALSE,
       ...
     )

@@ -6,11 +6,12 @@ geom_histogramj <- function(
   # position = "stack", show.legend = NA, inherit.aes = TRUE, ...,
   # na.rm = FALSE) {
   mapping = NULL, data = NULL,
-  stat = "binJ", position = "stack",
+  stat = "binj", position = "stack",
   ...,
   binwidth = NULL,
   bins = NULL,
   na.rm = FALSE,
+  orientation = NA,
   show.legend = NA,
   inherit.aes = TRUE){
   ggplot2::layer(
@@ -40,6 +41,7 @@ geom_histogramj <- function(
       binwidth = binwidth,
       bins = bins,
       na.rm = na.rm,
+      orientation = orientation,
       pad = FALSE,
       ...
     )

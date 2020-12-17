@@ -73,7 +73,7 @@ GeomRectH <- ggplot2::ggproto(
       data2 <- hatch2(rec2pol(data), panel_scales, F)
       # print(data2)
       ggname("geom_rectH",
-             grobTree(
+             grid::grobTree(
                #gTree(children = gList(
                grect,
                ggplot2:::GeomSegment$draw_panel(data2, panel_scales, coord)
@@ -88,7 +88,7 @@ GeomRectH <- ggplot2::ggproto(
     size = 0.5,
     linetype = 1,
     alpha = NA,
-    hatch = NULL
+    hatch = 3
   ),
   required_aes = c("xmin", "xmax", "ymin", "ymax"),
 

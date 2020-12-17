@@ -32,9 +32,10 @@ myBreaks <- function(x,num.breaks=3,breaks=NULL,method="equal",verbose=FALSE){
 }
 
 make.bks=function(x,base=10,interval=10,num=NA){
+  x = unique(x)
   minx=min(x)
   maxx=max(x)
-  if(minx==0) minx=min(df$x[-1])/base
+  if(minx==0) minx=min(x[-which.min(x)])/base
   lim0=base^floor(log(minx,base))
   lim1=base^ceiling(log(maxx,base))
   bks=numeric()
@@ -76,3 +77,4 @@ make.bks=function(x,base=10,interval=10,num=NA){
     return(list(breaks=bks,labels=lbls,minor_breaks=minor.bks,minor_labels=minor_lbls))
   # }
 }
+func.breaks = make.bks
