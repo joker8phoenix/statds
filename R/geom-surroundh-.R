@@ -64,7 +64,7 @@ geom_surroundh <- geom_surroundH <- function(mapping=NULL, data=NULL, stat="hatc
 GeomSurroundH <- ggplot2::ggproto(
   "GeomSurroundH",ggplot2:::Geom,
     required_aes = c("x", "y"),
-    default_aes = ggplot2::aes(
+  default_aes = ggplot2::aes(
       colour="black", fill="grey", size=0.5, linetype=1, border=1, alpha = NA),
 
   draw_group = function(data, panel_scales, coord, na.rm = FALSE) {

@@ -1,39 +1,39 @@
 #' stat_hatch
 stat_hatch <- function (
-  mapping = NULL, data = NULL, geom = "hatch", 
-  position = "identity", width = NULL, height = NULL, 
-  hatch = NULL, angle = NULL, border = NULL, 
+  mapping = NULL, data = NULL, geom = "hatch",
+  position = "identity", width = NULL, height = NULL,
+  hatch = NULL, angle = NULL, border = NULL,
   ...,
   show.legend=NA, inherit.aes=TRUE) {
   layer(
-    data = data, 
-    mapping = mapping, 
+    data = data,
+    mapping = mapping,
     stat = StatHatch,
-    geom = geom, 
-    position = position, 
+    geom = geom,
+    position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,
     params = list(
-      width = width, 
-      height = height, 
-      hatch = hatch, 
-      angle = angle, 
-      border = border, 
+      width = width,
+      height = height,
+      hatch = hatch,
+      angle = angle,
+      border = border,
       ...
     )
   )
 }
 
-StatHatch <- ggplot2::ggproto("StatHatch", ggplot2:::Stat, 
+StatHatch <- ggplot2::ggproto("StatHatch", ggplot2:::Stat,
   #default_geom <- function(.) GeomHatch
-  
+
   compute_group = function(
     self, data, scales, hatch=NULL, angle=NULL, border=NULL, ...) {
     # print(data)
     # print(self$aesthetics)
-    
+
     if (is.null(angle)) {
-      if (is.null(data$angle)){ 
+      if (is.null(data$angle)){
         # din=graphics::par("din")
         # angle=atan(din[2]/din[1])/pi*180
         # print(angle)
@@ -46,7 +46,7 @@ StatHatch <- ggplot2::ggproto("StatHatch", ggplot2:::Stat,
       }
     }
     else data$angle <- angle
-    print(unique(data$angle))
+    # print(unique(data$angle))
     if (is.null(hatch)) {
       if (is.null(data$hatch)) {
         rangex=scales$x$range$range
@@ -101,13 +101,13 @@ StatHatch <- ggplot2::ggproto("StatHatch", ggplot2:::Stat,
     }
     else data$hatch <- hatch
     if (is.null(border)) {
-      if (is.null(data$border)) 
+      if (is.null(data$border))
         data$border <- "black"
     }else {
       data$border <- border
     }
-    
-    
+
+
     # angles = plyr::ddply(data, "group", function(df) {
     #   angle <- unique(df$angle)+runif(1,0,360)
     #   angle = angle %% 180

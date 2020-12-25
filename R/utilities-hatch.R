@@ -72,7 +72,7 @@ hatch2 <- function(data, panel_scales, verbose=FALSE,...){
         start <- end + 1
         next
       }
-      df1=data.frame(df1,df2)
+      df1=data.frame(df1, df2, row.names = NULL)
       #df1$colour=df1$fill
       i <- i + 1
       df=rbind(df,df1)

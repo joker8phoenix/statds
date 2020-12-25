@@ -1,9 +1,7 @@
-
-stat_binh <- function(
+stat_binj <- function(
   mapping = NULL, data = NULL,
-  geom = "barH", position = "stack",
+  geom = "barJ", position = "stack",
   ...,
-  hatch = NULL,
   binwidth = NULL,
   bins = NULL,
   center = NULL,
@@ -16,7 +14,7 @@ stat_binh <- function(
   ggplot2::layer(
     data = data,
     mapping = mapping,
-    stat = StatBinH,
+    stat = StatBinJ,
     geom = geom,
     position = position,
     show.legend = show.legend,
@@ -31,7 +29,6 @@ stat_binh <- function(
       # breaks = breaks,
       # na.rm = na.rm,
       # ...
-      hatch = hatch,
       binwidth = binwidth,
       bins = bins,
       center = center,
@@ -48,11 +45,11 @@ stat_binh <- function(
 #' @format NULL
 #' @usage NULL
 #' @export
-StatBinH <- ggplot2::ggproto(
-  "StatBinH", ggplot2:::Stat,
+StatBinJ <- ggplot2::ggproto(
+  "StatBinJ", ggplot2:::Stat,
   setup_params = function(data, params) {
     if (!is.null(data$y) || !is.null(params$y)) {
-      stop("stat_binH() must not be used with a y aesthetic.", call. = FALSE)
+      stop("stat_binJ() must not be used with a y aesthetic.", call. = FALSE)
     }
     if (is.integer(data$x)) {
       stop('StatBin requires a continuous x variable the x variable is discrete. Perhaps you want stat="count"?',
@@ -86,10 +83,6 @@ StatBinH <- ggplot2::ggproto(
       message_wrap("`stat_bin()` using `bins = freedman`. Pick better value with `binwidth`.")
       params$bins <- "fr"
     }
-    if(is.na(params$hatch) || is.null(params$hatch)){
-      message_wrap("`hatch` using `NULL`.")
-      params$hatch = NULL
-    }
     # print(params)
     params
   },
@@ -99,7 +92,7 @@ StatBinH <- ggplot2::ggproto(
   # 	  origin=NULL, breaks=NULL, width=0.9, drop = FALSE,
   # 	  right = FALSE) {
   compute_group = function(
-    data, scales, hatch = NULL, binwidth = NULL, bins = NULL,
+    data, scales, binwidth = NULL, bins = NULL,
     center = NULL, boundary = NULL,
     closed = c("right", "left"), pad = FALSE,
     # The following arguments are not used, but must

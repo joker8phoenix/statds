@@ -1,5 +1,4 @@
 far.from.others <- function(all.groups,...,log.tran.x=FALSE, log.tran.y=FALSE,debug=FALSE){
-  
   cn = colnames(all.groups)
   colnames(all.groups) = c("x", "y", "group")
   if(log.tran.x){
@@ -23,9 +22,6 @@ far.from.others <- function(all.groups,...,log.tran.x=FALSE, log.tran.y=FALSE,de
     }
     group.list[[groups]] <- data.frame(approx.list, groups)
   }
-  
-  # xlimits = grid::convertX(unit(c(0, 1), "npc"), "cm", valueOnly = TRUE)
-  
   output <- data.frame()
   for(group.i in seq_along(group.list)){
     one.group <- group.list[[group.i]]
@@ -41,9 +37,8 @@ far.from.others <- function(all.groups,...,log.tran.x=FALSE, log.tran.y=FALSE,de
     for(xy in c("x", "y")){
       xy.vec <- one.group[,xy]
       xy.mat <- rbind(xy.vec, xy.vec)
-      # lim.fun <- get(sprintf("%slimits", xy))
+      lim.fun <- get(sprintf("%slimits", xy))
       diff.mat <- xy.mat - lim.fun()
-      diff.mat <- xy.mat - grid::convertX(unit(c(0, 1), "npc"), "cm", valueOnly = TRUE)
       dist.mat[,xy] <- apply(abs(diff.mat), 2, min)
     }
     other.groups <- group.list[-group.i]
