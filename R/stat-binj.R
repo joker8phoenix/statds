@@ -120,10 +120,9 @@ StatBinJ <- ggplot2::ggproto("StatBinJ", ggplot2:::Stat,
     flip_data(bins, flipped_aes)
   },
 
-  default_aes = aes(x = ggplot2::after_stat(count), y = ggplot2::after_stat(count), weight = 1, colour="white", fill="skyblue"),
-  # default_aes = ggplot2::aes(y = ..count.., colour="white"),
-  # required_aes = c("x")
-
-  required_aes = "x|y"
+  # default_aes = aes(x = ggplot2::after_stat(count), y = ggplot2::after_stat(count), weight = 1, colour="white", fill="skyblue"),
+  # required_aes = "x|y"
+  default_aes = ggplot2::aes(y = ..count.., colour="white"),
+  required_aes = c("x")
 )
 
